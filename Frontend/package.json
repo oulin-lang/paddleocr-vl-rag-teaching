@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "jiaoshi_ai_frontend",
+  "version": "1.0.0",
+  "description": "Django Frontend for Jiaoshi AI",
+  "scripts": {
+    "start": "venv\\Scripts\\python manage.py runserver 8001",
+    "dev": "npm start",
+    "test": "venv\\Scripts\\python manage.py test"
+  },
+  "keywords": [
+    "django",
+    "frontend"
+  ],
+  "author": "",
+  "license": "ISC"
+}
