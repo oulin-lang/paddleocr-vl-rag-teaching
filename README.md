@@ -46,33 +46,33 @@
 ## 🏗 项目架构
 
 ```mermaid
-graph TD
-    User[用户 (教师/学生)] --> Frontend[前端 (Django)]
-    Frontend --> API[后端 API (FastAPI)]
+graph TD;
+    User["用户 (教师)"] --> Frontend["前端 (Django)"];
+    Frontend --> API["后端 API (FastAPI)"];
     
-    subgraph "Backend Core"
-        API --> SessionMgr[会话管理]
-        SessionMgr --> Agent[智能体 (LangGraph)]
+    subgraph BackendCore["Backend Core"]
+        API --> SessionMgr["会话管理"];
+        SessionMgr --> Agent["智能体 (LangGraph)"];
         
-        Agent --> LLM[大语言模型 (Qwen)]
-        Agent --> Tools[工具集 (搜索/计算)]
+        Agent --> LLM["大语言模型 (Qwen)"];
+        Agent --> Tools["工具集 (搜索/计算)"];
         
-        subgraph "RAG System"
-            Agent --> Retriever[混合检索器]
-            Retriever --> VectorDB[(向量数据库)]
-            Retriever --> PaddleOCR[多模态解析器]
+        subgraph RAGSystem["RAG System"]
+            Agent --> Retriever["混合检索器"];
+            Retriever --> VectorDB["向量数据库"];
+            Retriever --> PaddleOCR["多模态解析器"];
         end
         
-        subgraph "Batch Processing"
-            API --> GradingWF[批改工作流]
-            GradingWF --> PaddleOCR
-            GradingWF --> LLM
-            GradingWF --> PDFGen[报告生成器]
+        subgraph BatchProcessing["Batch Processing"]
+            API --> GradingWF["批改工作流"];
+            GradingWF --> PaddleOCR;
+            GradingWF --> LLM;
+            GradingWF --> PDFGen["报告生成器"];
         end
     end
     
-    PaddleOCR --> Docs[文档/图片]
-    PDFGen --> Reports[批改报告]
+    PaddleOCR --> Docs["文档/图片"];
+    PDFGen --> Reports["批改报告"];
 ```
 
 ## 🤖 智能体工作流程
